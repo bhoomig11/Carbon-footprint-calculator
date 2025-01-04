@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <h1>Carbon Footprint Calculator</h1>
+    <form action="/calculate" method="POST">
+        <fieldset>
+            <legend>Transportation</legend>
+            <label for="car_kms">Kilometers driven by car per week:</label>
+            <input type="number" id="car_kms" name="car_kms" step="0.1" placeholder="e.g., 50" required>
+
+            <label for="fuel_efficiency">Car fuel efficiency (liters per 100 km):</label>
+            <input type="number" id="fuel_efficiency" name="fuel_efficiency" step="0.1" placeholder="e.g., 8.5" required>
+
+            <label for="public_transport">Kilometers traveled by public transport per week:</label>
+            <input type="number" id="public_transport" name="public_transport" step="0.1" placeholder="e.g., 10" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Energy Usage</legend>
+            <label for="electricity_usage">Monthly electricity usage (kWh):</label>
+            <input type="number" id="electricity_usage" name="electricity_usage" step="0.1" placeholder="e.g., 150" required>
+
+            <label for="gas_usage">Monthly natural gas usage (therms):</label>
+            <input type="number" id="gas_usage" name="gas_usage" step="0.1" placeholder="e.g., 30" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Food Choices</legend>
+            <label for="diet">Diet type:</label>
+            <select id="diet" name="diet" required>
+                <option value="vegetarian" selected>Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="non-vegetarian">Non-Vegetarian</option>
+            </select>
+        </fieldset>
+
+        <button type="submit">Calculate</button>
+    </form>
+</body>
+</html>
